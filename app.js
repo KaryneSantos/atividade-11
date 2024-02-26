@@ -6,6 +6,8 @@ const upload = multer({dest: 'uploads/'});
 
 const port = 8000;
 
+const adminSenha = 'admin123';
+
 let usuarios = [];
 let alertaCadastro = '';
 const bodyParser = require('body-parser');
@@ -96,6 +98,16 @@ app.delete('/deletar', (req, res) => {
         res.status(200).send('Usuário excluído com sucesso');
     }
 });
+
+app.get('/usuarios', (req, res) => {
+    const {senha} = req.body;
+
+    if(senha === adminSenha){
+        res.render('usuarios', {usuarios});
+    } else {
+        res.status(401).send("Senha de administração incorreta");
+    }
+})
 
 app.use(express.static('public'));
 

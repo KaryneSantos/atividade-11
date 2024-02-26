@@ -20,15 +20,24 @@ function excluirUsuarios(email) {
     })
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const senhaAcesso = 'admin123';
-    let senha = parseInt(prompt('Digite a senha de acesso:'));
 
-    if(senha !== senhaAcesso){
-        console.log('Acesso negado.');
-        window.location.href = '/pagina_inicial';
-    } else {
-        console.log('Acesso permitido.');
-        return;
-    }
-});
+const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
+
+    fetch(`/usuarios`, {method: 'GET',
+    body: JSON.stringify({ senhaAdmin}),
+    headers: {
+        'Content-Type': 'application/json'
+    }}) 
+    .then(response => {
+        if (response.ok) {
+            return response.text();
+        } else {
+            throw new Error('Senha de administração incorreta.');
+        }
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error.message);
+    });
