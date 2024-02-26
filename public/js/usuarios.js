@@ -20,8 +20,7 @@ function excluirUsuarios(email) {
     })
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+function logarAdmin(){
    const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
    const tabela = document.getElementById('tabela');
     tabela.style.display = 'none';
@@ -45,5 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => {
         console.error(error.message);
     }); 
-})
+}
 
