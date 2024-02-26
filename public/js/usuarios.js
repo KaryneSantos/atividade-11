@@ -19,3 +19,16 @@ function excluirUsuarios(email) {
         console.error('Erro ao excluir usuário:', error);
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const senhaAcesso = 'admin123';
+    let senha = parseInt(prompt('Digite a senha de acesso:'));
+
+    if(senha !== senhaAcesso){
+        console.log('Acesso negado.');
+        window.location.href = '/pagina_inicial';
+    } else {
+        console.log('Acesso permitido.');
+        return;
+    }
+});
