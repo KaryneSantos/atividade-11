@@ -23,6 +23,8 @@ function excluirUsuarios(email) {
 
 document.addEventListener('DOMContentLoaded', () => {
    const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
+   const tabela = document.getElementById('tabela');
+    tabela.style.display = 'none';
 
     fetch(`/usuarios`, {method: 'GET',
     body: JSON.stringify({ senhaAdmin}),
@@ -31,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }}) 
     .then(response => {
         if (response.ok) {
-            const tabela = document.getElementById('tabela');
             tabela.style.display = 'block';
             return response.text();
         } else {
