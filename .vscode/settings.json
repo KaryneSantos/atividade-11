@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/50a8e53c-e85a-4d82-b693-b5b2ac4e186e/resourceGroups/atividade-11/providers/Microsoft.Web/sites/atividade-11",
+    "appService.deploySubpath": "."
+}
