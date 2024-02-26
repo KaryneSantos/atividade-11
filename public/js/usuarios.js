@@ -21,7 +21,8 @@ function excluirUsuarios(email) {
 }
 
 
-const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
+document.addEventListener('DOMContentLoaded', () => {
+   const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
 
     fetch(`/usuarios`, {method: 'GET',
     body: JSON.stringify({ senhaAdmin}),
@@ -42,4 +43,6 @@ const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
     })
     .catch(error => {
         console.error(error.message);
-    });
+    }); 
+})
+
