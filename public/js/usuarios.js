@@ -20,29 +20,3 @@ function excluirUsuarios(email) {
     })
 }
 
-function logarAdmin(){
-   const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
-   const tabela = document.getElementById('tabela');
-    tabela.style.display = 'none';
-
-    fetch(`/usuarios`, {method: 'GET',
-    body: JSON.stringify({ senhaAdmin}),
-    headers: {
-        'Content-Type': 'application/json'
-    }}) 
-    .then(response => {
-        if (response.ok) {
-            tabela.style.display = 'block';
-            return response.text();
-        } else {
-            throw new Error('Senha de administração incorreta.');
-        }
-    })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error(error.message);
-    }); 
-}
-

@@ -99,16 +99,6 @@ app.delete('/deletar', (req, res) => {
     }
 });
 
-app.get('/usuarios', (req, res) => {
-    const {senha} = req.body;
-
-    if(senha === adminSenha){
-        res.render('usuarios', {usuarios});
-    } else {
-        res.status(401).send("Senha de administração incorreta");
-    }
-})
-
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
