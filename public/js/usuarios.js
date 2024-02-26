@@ -30,6 +30,8 @@ const senhaAdmin = parseInt(prompt('Digite a senha de administração:'));
     }}) 
     .then(response => {
         if (response.ok) {
+            const tabela = document.getElementById('tabela');
+            tabela.style.display = 'block';
             return response.text();
         } else {
             throw new Error('Senha de administração incorreta.');
