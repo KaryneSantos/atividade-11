@@ -119,6 +119,8 @@ app.get('/pagina_inicial', (req, res) => {
     res.render('pagina_inicial');
 });
 
-// app.listen(port);
+app.listen(port);
 
 // console.log('Sistema iniciado!');
+
+module.exports = app;
